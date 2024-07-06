@@ -93,8 +93,7 @@ class Roombooking:
         txt_Check_out=ttk.Combobox(labelFrameLeft,width=29,font=("arial",13,"bold"),state="readonly",textvariable=self.var_roomtype) 
         # txt_Check_out["value"]=("Single","Double","Delux")
         txt_Check_out["value"]=rows_of_roomType
-        txt_Check_out.current(0)
-        txt_Check_out.grid(row=3,column=1)
+   
 
         #Room Available
         lblRoomAvailable=Label(labelFrameLeft,text="Available room:",font=("arial",12,"bold"),padx=2,pady=6)
@@ -108,12 +107,6 @@ class Roombooking:
         my_cusror=conn.cursor()
         my_cusror.execute("select RoomNo from details") 
         rows=my_cusror.fetchall()
-
-        txt_RoomNo=ttk.Combobox(labelFrameLeft,width=29,font=("arial",13,"bold"),state="readonly",textvariable=self.var_roomavailable) 
-        txt_RoomNo["value"]=rows #getting data from table in 'rows'
-        txt_RoomNo.current(0)
-        txt_RoomNo.grid(row=4,column=1)
-
 
         #Meal
         lblMeal=Label(labelFrameLeft,text="Meals:",font=("arial",12,"bold"),padx=2,pady=6)
@@ -142,15 +135,13 @@ class Roombooking:
         lblTax_paid=Label(labelFrameLeft,text="GST levied(5%):",font=("arial",12,"bold"),padx=2,pady=6)
         lblTax_paid.grid(row=7,column=0,sticky=W)
 
-        txtTax_paid=ttk.Entry(labelFrameLeft,width=29,font=("arial",13,"bold"),textvariable=self.var_paidtax) 
-        txtTax_paid.grid(row=7,column=1)
+   
 
         #Total cost
         lblTotal_cost=Label(labelFrameLeft,text="Total cost:",font=("arial",12,"bold"),padx=2,pady=6)
         lblTotal_cost.grid(row=9,column=0,sticky=W)
 
-        txtTotal_cost=ttk.Entry(labelFrameLeft,width=29,font=("arial",13,"bold"),textvariable=self.var_total) 
-        txtTotal_cost.grid(row=9,column=1)
+        
 
          #====Button Bill======#
 
@@ -286,11 +277,8 @@ class Roombooking:
             my_cusror.execute(query,value) #The value tuple replaces the %s placeholder in the query with the actual contact number provided by the user.
             row=my_cusror.fetchone()
 
-            if(row==None):
-                messagebox.showerror("Error","This number not found",parent=self.root)
-            else:
-                conn.commit()
-                conn.close()
+            conn.commit()
+            conn.close()
 
                 showDataFrame=Frame(self.root,bd=4,relief=RIDGE,padx=2)
                 showDataFrame.place(x=450,y=55,width=300,height=180)
@@ -319,10 +307,7 @@ class Roombooking:
                 conn=mysql.connector.connect(host="localhost",username="root",password="mysql@123",database="hotel_management_system")
                 my_cusror=conn.cursor()
                 query=("select email from customer where mobile=%s")
-                value=(self.var_contact.get(),)
-                my_cusror.execute(query,value)
-                row=my_cusror.fetchone()
-
+    
                 lblemail=Label(showDataFrame,text="Email:",font=("arial",12,"bold"))
                 lblemail.place(x=0,y=60)
 
@@ -342,20 +327,6 @@ class Roombooking:
 
                 lbl4=Label(showDataFrame,text=row,font=("arial",12,"bold"))
                 lbl4.place(x=90,y=90)
-
-                #====Address======#
-                conn=mysql.connector.connect(host="localhost",username="root",password="mysql@123",database="hotel_management_system")
-                my_cusror=conn.cursor()
-                query=("select address from customer where mobile=%s")
-                value=(self.var_contact.get(),)
-                my_cusror.execute(query,value)
-                row=my_cusror.fetchone()
-
-                lblAddress=Label(showDataFrame,text="Email:",font=("arial",12,"bold"))
-                lblAddress.place(x=0,y=120)
-
-                lbl4=Label(showDataFrame,text=row,font=("arial",12,"bold"))
-                lbl4.place(x=90,y=120)
 
                 #====Address======#
                 conn=mysql.connector.connect(host="localhost",username="root",password="mysql@123",database="hotel_management_system")
@@ -499,15 +470,7 @@ class Roombooking:
         value = ("%" + search_value + "%",)
         # "%" + search_value + "%" surrounds search_value with % characters ,This matches any value that contains search_value anywhere in the text. Ex: If search_value is 123, %123% will match 0123456789, 123, abc123xyz, etc.
 
-        my_cursor.execute(query, value)
-        rows = my_cursor.fetchall()
-        if len(rows) != 0:
-            self.room_table.delete(*self.room_table.get_children())
-            for i in rows:
-                self.room_table.insert("", END, values=i)
-        conn.commit()
-        conn.close()  
-
+    
 
 
 
