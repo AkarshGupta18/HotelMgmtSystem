@@ -28,8 +28,20 @@ This project is a comprehensive Hotel Management System designed to streamline t
    Libraries: PIL (Pillow), Requests
 
 # Images of GUI of the software
+![forgot password](https://github.com/AkarshGupta18/HotelMgmtSystem/assets/108345620/cb05d0a6-af49-4847-b2a6-a79ab00f8db0)
+![singup page](https://github.com/AkarshGupta18/HotelMgmtSystem/assets/108345620/aecab026-a8f8-4d3d-b7d0-b29ca195cb8d)
+![forgot password](https://github.com/AkarshGupta18/HotelMgmtSystem/assets/108345620/10936004-9a45-4b2d-a2c8-0501776fec44)
+![main window](https://github.com/AkarshGupta18/HotelMgmtSystem/assets/108345620/2539784a-9e1e-40a8-afce-35e9450483c3)
+![room details](https://github.com/AkarshGupta18/HotelMgmtSystem/assets/108345620/3f4aadf7-d3b3-4cfa-8074-a51f17523866)
+![after fetch data room](https://github.com/AkarshGupta18/HotelMgmtSystem/assets/108345620/5749eb5e-4d51-43bb-a17c-7a65dc1998b3)
+![make a room available](https://github.com/AkarshGupta18/HotelMgmtSystem/assets/108345620/98b82be1-877c-4b24-a33a-9804a4fcc1c9)
 
-![login](https://github.com/AkarshGupta18/HotelMgmtSystem/assets/108345620/6ade4da5-04ac-4b3d-b76a-83aa2bd5171d)
+
+
+
+
+
+
 
 
 
